@@ -1,0 +1,99 @@
+/*如何处理与自定义类名相同*/
+.container {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    background: #eee;
+    perspective: 1000px;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    margin:0 auto;
+}
+
+.container .item {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height:100%;
+    text-align: center;
+    overflow: hidden;
+}
+.container .item.prev,
+.container .item.next,
+.container .item.active,
+.container .item.left,
+.container .item.right{
+    display: block;
+}
+.container .item img {
+    margin-top: 38%;
+}
+
+.container .item.left {
+    left: -100%;
+}
+
+.container .item.right {
+    left: 100%;
+}
+
+.container .item.active {
+    left: 0;
+    transition: left .5s ease-in-out;
+}
+
+.container .item.prev {
+    left: -100%;
+    transition: left .5s ease-in-out;
+}
+
+.container .item.next {
+    left: 100%;
+    transition: left .5s ease-in-out;
+}
+
+/*是不是向左滑要改成 active left 向右滑改为active right  如何一个事件实现添加两侧class*/
+
+/*如何定义按钮和圆点 ???*/
+.container .broadcastBtn {
+    position: absolute;
+    width: 100%;
+}
+
+.container .broadcastBtn > i {
+    position: absolute;
+    width: 20px;
+    height:30px;
+    top: 150px;
+    background-color: #5b5b5b;
+    z-index: 1;
+}
+
+.container .broadcastBtn > i:nth-child(1) {
+    left: 0;
+}
+
+.container .broadcastBtn > i:nth-child(2) {
+    right: 0;
+}
+
+.container .broadcastDot {
+    position: absolute;
+    width: 100%;
+    padding-top: 80%;
+}
+
+.container .broadcastDot > i {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    z-index: 1;
+    margin-left: 2%;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+
+.container .broadcastDot > i.changeBg {
+    background-color: #54ff50;
+}
